@@ -1,0 +1,35 @@
+EJERCICIO: Automatización E2E - Demoblaze
+
+----------------------------------------
+HALLAZGOS TÉCNICOS
+----------------------------------------
+
+1. El sistema no valida stock ni cantidad de productos agregados.
+
+2. La carga de productos es dinámica, lo que requiere el uso de esperas explícitas para evitar fallos en la sincronización.
+
+3. El botón "Place Order" despliega un modal que debe esperar visibilidad antes de interactuar.
+
+----------------------------------------
+RETOS ENCONTRADOS
+----------------------------------------
+
+- Inicialización del WebDriver en Serenity con Cucumber.
+- Manejo de sincronización debido a carga dinámica.
+- Manejo de alertas.
+- Estabilidad del flujo completo sin usar arquitectura avanzada.
+
+----------------------------------------
+CONCLUSIONES
+----------------------------------------
+
+La automatización implementada valida correctamente el flujo E2E de compra:
+
+✔ Agregar dos productos al carrito
+✔ Visualizar carrito
+✔ Completar formulario
+✔ Finalizar compra
+
+Se logró una solución funcional, estable y ejecutable utilizando Serenity BDD con Gradle, cumpliendo con los requisitos solicitados.
+
+El flujo puede escalarse fácilmente hacia una arquitectura más robusta como Screenplay en caso de requerirse mantenimiento a largo plazo.
