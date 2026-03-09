@@ -1,7 +1,24 @@
-Feature: Purchase flow
+@ProcesodeCompra
+Feature: Flujo de compra en DemoBlaze
 
-  Scenario: Successful purchase of two products
-    Given the user opens the Demoblaze homepage
-    When the user adds two products to the cart
-    And the user completes the purchase form
-    Then the purchase should be completed successfully
+  Scenario Outline: Compra exitosa de productos en DemoBlaze
+
+    Given el usuario accede al sitio DemoBlaze
+
+    When agrega los siguientes productos al carrito
+      | categoria | producto |
+      | Phones    | Samsung galaxy s6 |
+      | Laptops   | MacBook air |
+
+    And visualiza el contenido del carrito
+
+    Then completa el formulario de compra con "<name>" "<country>" "<city>" "<card>" "<month>" "<year>"
+
+    And finaliza la compra
+
+    Then deberia ver el mensaje de confirmacion "Thank you for your purchase!"
+
+    Examples:
+      | name | country | city | card | month | year |
+      | Alexander Narvaez | Ecuador | Quito | 44443333 | 12 | 2025 |
+      | Maria Lopez | Peru | Lima | 55556666 | 11 | 2026 |
